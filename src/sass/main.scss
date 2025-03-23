@@ -1,0 +1,222 @@
+@use "components";
+
+*::before,
+*::after,
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: components.$font-size-10px;
+	font-family: components.$font-exo;
+	scroll-behavior: smooth;
+	height: 200vh;
+}
+
+.shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.75);
+	z-index: 1;
+}
+
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1400px;
+}
+
+// NAV
+
+.nav {
+	text-transform: uppercase;
+	font-weight: bold;
+	&-button {
+		position: fixed;
+		// tutaj pojawił się problem, bo nie ustawiłeś top i right, pamiętaj o tym :)
+		top: components.$size-1rem;
+		right: components.$size-1rem;
+		width: 50px;
+		height: 50px;
+		font-size: components.$size-4rem;
+		border: 2px solid components.$black-color;
+		border-radius: 5px;
+		z-index: -100;
+	}
+	.close {
+		position: relative;
+	}
+	&.nav-mobile {
+		position: fixed;
+		right: -110%;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		background-color: components.$grey-color;
+		font-size: components.$size-4rem;
+		transition: right 0.5s;
+		&.nav-active {
+			right: 0;
+		}
+	}
+
+	&__link {
+		padding: components.$size-2rem components.$size-4rem;
+		text-decoration: none;
+		color: components.$white-color;
+
+		&:active {
+			color: components.$main-color;
+		}
+
+		&:hover {
+			color: components.$main-color;
+		}
+	}
+
+	&.nav-desktop {
+		display: none;
+	}
+}
+
+// HEADER
+
+.header {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url("/dist/img/main-menu-mobile.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 80vh;
+	z-index: -1;
+
+	.header-content {
+		margin: components.$size-3rem;
+		position: relative;
+		color: components.$white-color;
+		z-index: 100;
+		img {
+			width: 100%;
+		}
+		.company-name {
+			text-align: center;
+			font-size: components.$size-3rem;
+			text-transform: uppercase;
+			&-span {
+				color: components.$main-color;
+			}
+		}
+		.company-intro {
+			font-size: components.$size-2rem;
+		}
+	}
+}
+
+//MAIN
+.main {
+	margin: components.$size-2rem components.$size-3rem;
+}
+
+//ABOUT US
+.about-us {
+	&-heading {
+		text-align: center;
+		font-size: components.$size-3rem;
+		text-transform: uppercase;
+	}
+	&-paragraph {
+		color: black;
+	}
+	&-carousel {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: -1;
+		&-card {
+			margin: components.$size-2rem;
+			width: 50%;
+			border-radius: 10px;
+			box-shadow: 2px 2px 12px 0px rgba(66, 68, 90, 1);
+			&-img {
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+				width: 100%;
+			}
+			&-content {
+				margin: components.$size-1rem;
+			}
+			&-socials {
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+			}
+		}
+	}
+}
+
+//GAMES
+
+.games {
+	text-align: center;
+	&-heading {
+		text-transform: uppercase;
+	}
+
+	.game {
+		&-heading {
+			text-transform: uppercase;
+		}
+		&-img {
+			width: 100%;
+			&-carousel {
+				position: relative;
+				z-index: -1;
+			}
+		}
+	}
+}
+
+//FOOTER
+
+.footer {
+	text-align: center;
+	padding: components.$size-3rem;
+	color: components.$white-color;
+	background-color: components.$grey-color;
+}
+
+//
+
+@media (min-width: 768px) {
+	.nav-shadow {
+		position: fixed;
+		background-color: rgba(0,0,0,0.8);
+		height: 100%;
+		width: 100%;
+		right: -100%;
+	}
+
+	.nav-shadow-active {
+		right: 0;
+	}
+
+	.nav {
+		&.nav-mobile {
+			&.nav-active {
+				right: -40%;
+			}
+		}
+	}
+}
