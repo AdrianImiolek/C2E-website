@@ -202,7 +202,7 @@ html {
 @media (min-width: 768px) {
 	.nav-shadow {
 		position: fixed;
-		background-color: rgba(0,0,0,0.8);
+		background-color: rgba(0, 0, 0, 0.8);
 		height: 100%;
 		width: 100%;
 		right: -100%;
@@ -218,5 +218,28 @@ html {
 				right: -40%;
 			}
 		}
+	}
+}
+
+@media (min-width: 992px) {
+	.nav {
+		&.nav-mobile {
+			display: none;
+		}
+		&.nav-desktop {
+			display: block;
+			width: 100%;
+			background-color: components.$grey-color;
+			padding: 0 components.$size-3rem 0;
+			.nav-desktop-containers {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+		}
+	}
+
+	.header {
+		background-image: url("/dist/img/main-menu.jpg");
 	}
 }
