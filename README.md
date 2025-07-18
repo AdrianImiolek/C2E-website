@@ -1,3 +1,8 @@
+# Click 2 Escape – Official Website
+
+**Click 2 Escape** is a simple, responsive, and mobile-friendly website built for a point-and-click game development brand. The project was created with performance, accessibility, and clean UI design in mind.
+
+🔗 Live Demo - https://adrianimiolek.github.io/C2E-website/
 ## 🛠️ Technologies Used
 
 - HTML5 for semantic markup
